@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class NumberWizard : MonoBehaviour
-{//varables
+{//varables that are globle to the class
     int intmax = 1000;
     int intmin = 1;
     int intguess = 500;
@@ -19,7 +19,8 @@ public class NumberWizard : MonoBehaviour
        //Instructions for input
         Debug.Log("is your number higher or lower than 500?");
         Debug.Log("Up = higher, down = lower, enter = correct");
-
+       //Bugfix for not going to 1000
+        intmax = intmax + 1;
     }
 
     // Update is called once per frame
@@ -28,21 +29,24 @@ public class NumberWizard : MonoBehaviour
         //Cheacks for up arrow input
         if (Input.GetKeyDown(KeyCode.UpArrow)) 
         {
-            Debug.Log("Up Arrow key was pressed");
+            Debug.Log("Up input has been read");
             intmin = intguess;
+            intguess = (intmax + intmin) / 2;
             Debug.Log(intguess);
         }
         //Cheacks for down arrow input
         else if (Input.GetKeyDown(KeyCode.DownArrow)) 
         {
-            Debug.Log("Down Arrow key pressed");
+            Debug.Log("Down input has been read");
             intmax = intguess;
+            intguess = (intmax + intmin) / 2;
             Debug.Log(intguess);
+            
         }
         //Cheacks for enter key input
         else if (Input.GetKeyDown(KeyCode.Return))
         {
-            Debug.Log("Enter key pressed");
+            Debug.Log("Enter input has been read");
         }
     }
 }
