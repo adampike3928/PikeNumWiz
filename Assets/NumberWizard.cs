@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class NumberWizard : MonoBehaviour
-{
+{//varables
+    int intmax = 1000;
+    int intmin = 1;
+    int intguess = 500;
     // Start is called before the first frame update
     void Start()
-    {//prints the text inputed
-        int intmax = 1000;
-        int intmin = 1;
+    {
+        
+        //Greetings comments
         Debug.Log("Sup, this is num wiz bro. ");
         Debug.Log("Pick a number my dude or dudet ");
         Debug.Log("The highest number you may input is " + intmax);
@@ -25,12 +28,16 @@ public class NumberWizard : MonoBehaviour
         //Cheacks for up arrow input
         if (Input.GetKeyDown(KeyCode.UpArrow)) 
         {
-            Debug.Log("Up Arrow key was pressed"); 
+            Debug.Log("Up Arrow key was pressed");
+            intmin = intguess;
+            Debug.Log(intguess);
         }
         //Cheacks for down arrow input
         else if (Input.GetKeyDown(KeyCode.DownArrow)) 
         {
             Debug.Log("Down Arrow key pressed");
+            intmax = intguess;
+            Debug.Log(intguess);
         }
         //Cheacks for enter key input
         else if (Input.GetKeyDown(KeyCode.Return))
